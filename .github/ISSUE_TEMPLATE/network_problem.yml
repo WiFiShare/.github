@@ -1,0 +1,85 @@
+name: Network problem
+description: A network in the published data is wrong, unusable, or should not be listed at all.
+labels: ["network-problem"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for a problem with a network in the published data: it is
+        not there any more, it cannot be joined, its position is wrong, or it is
+        a private network that should never have been listed.
+
+        No data has been published yet, so for now this form mainly records
+        problems to test the removal path against.
+
+        This form deliberately does not ask for a BSSID or a password, and you
+        should not add either. Issues are public. Please give the SSID and the
+        area only.
+
+        If the network is yours and you want it left out permanently, you do not
+        need this form and you do not need an account. Rename the network so its
+        SSID ends in `_nomap` or `_optout`, and it will never be collected. Once
+        an app is released it will also offer one-tap removal.
+  - type: dropdown
+    id: problem
+    attributes:
+      label: What is wrong
+      options:
+        - This network should not be listed at all (private network)
+        - The network no longer exists
+        - The network cannot be joined (needs a login, a payment or a voucher)
+        - The position is wrong
+        - The name shown is wrong
+        - Something else
+    validations:
+      required: true
+  - type: input
+    id: ssid
+    attributes:
+      label: Network name (SSID)
+      description: The name as it appears in the data or on the device.
+    validations:
+      required: true
+  - type: input
+    id: area
+    attributes:
+      label: Area
+      description: >
+        The town, or a geohash prefix of the area. A geohash-5 prefix is enough
+        and is what the dump uses for file paths. Do not give a street address.
+      placeholder: e.g. Bologna, or u04sr
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: >
+        What you saw and what you expected. If the position is wrong, say
+        roughly how far off it is rather than giving exact coordinates.
+    validations:
+      required: false
+  - type: dropdown
+    id: relationship
+    attributes:
+      label: Is this network yours?
+      description: >
+        Only used to decide which path applies. No proof is requested here and
+        no account is involved.
+      options:
+        - "Yes, I own or run it"
+        - "No, I found it in the data"
+        - Prefer not to say
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you submit
+      options:
+        - label: I have not included a BSSID or MAC address.
+          required: true
+        - label: I have not included a Wi-Fi password or any other credential.
+          required: true
+        - label: I understand this issue is public.
+          required: true

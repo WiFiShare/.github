@@ -1,0 +1,86 @@
+name: Feature request
+description: Suggest something the project should do that it does not do yet.
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        The project is at P0, foundations. Most of it is not built yet, so a
+        request that describes a problem is more useful than one that describes
+        a screen.
+
+        A proposal that needs more data collected than helps someone connect, or
+        that needs accounts, device IDs or advertising IDs for contributors, will
+        be declined. Those are not tradeoffs the project makes.
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      options:
+        - api (backend)
+        - android (app)
+        - ios (app)
+        - spec (data model, schemas, fixtures)
+        - data (public dump)
+        - website
+        - across several
+    validations:
+      required: true
+  - type: dropdown
+    id: phase
+    attributes:
+      label: Which phase does this belong to
+      description: Your best guess. The maintainers will correct it if needed.
+      options:
+        - P0 foundations
+        - P1 data pipeline and API
+        - P2 Android app
+        - P3 iOS app
+        - P4 venue sharing and public beta
+        - not sure
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: The problem
+      description: What cannot be done today, and who is blocked by it.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What you propose
+      description: >
+        The change you have in mind. If it affects what is collected or what is
+        published, say so plainly here.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you considered
+      description: Including doing nothing, and why that is worse.
+    validations:
+      required: false
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      description: The three rules the project works to.
+      options:
+        - label: This proposal does not need anything collected beyond what helps someone connect.
+          required: false
+        - label: This proposal does not need accounts, device IDs or advertising IDs for contributors.
+          required: false
+        - label: This proposal does not need anything published that ties an observation to a person.
+          required: false
+        - label: This proposal does affect what is collected or published, and I have explained how above.
+          required: false
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you submit
+      options:
+        - label: I searched the existing issues in that repository.
+          required: true

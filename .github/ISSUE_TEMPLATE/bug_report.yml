@@ -1,0 +1,93 @@
+name: Bug report
+description: Something in the code or the published data pipeline does not work as documented.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        WiFiShare is in early development. No data is being collected yet and no
+        app has been released, so many things are simply not built. Please check
+        the repository README and the open issues first.
+
+        Do not report a security or privacy vulnerability here. Use GitHub
+        private vulnerability reporting instead: see SECURITY.md.
+
+        Do not put a BSSID, a Wi-Fi password or your home address in this form.
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      description: Which part of the project is affected?
+      options:
+        - api (backend)
+        - android (app)
+        - ios (app)
+        - spec (data model, schemas, fixtures)
+        - data (public dump)
+        - website
+        - not sure
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version or revision
+      description: Commit hash, tag or app build, if you know it.
+      placeholder: e.g. commit 0a1b2c3, or main as of today
+    validations:
+      required: false
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you observed, in your own words.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected instead
+      description: If a README, the spec or a schema says otherwise, link to it.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Numbered steps. A failing test or a command line is better than prose.
+      placeholder: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: >
+        Operating system and version, Python or JDK or Xcode version, device
+        model and OS version for an app. Leave out anything that identifies you.
+    validations:
+      required: false
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or output
+      description: >
+        Paste the relevant part. Remove BSSIDs, passwords and precise
+        coordinates before pasting.
+      render: shell
+    validations:
+      required: false
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before you submit
+      options:
+        - label: This is not a security or privacy vulnerability report.
+          required: true
+        - label: This report contains no BSSID, no Wi-Fi password and no precise location of a home.
+          required: true
+        - label: I searched the existing issues in that repository.
+          required: true

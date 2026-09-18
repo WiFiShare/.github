@@ -1,0 +1,22 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Report a security or privacy vulnerability
+    url: https://github.com/WiFiShare/.github/blob/main/SECURITY.md
+    about: >
+      Use GitHub private vulnerability reporting on the affected repository, not
+      a public issue. This page explains how and what is in scope.
+  - name: Opt a network out
+    url: https://github.com/WiFiShare/.github/blob/main/profile/README.md#opting-a-network-out
+    about: >
+      Rename the network so its SSID ends in _nomap or _optout and it is never
+      collected. No account and no issue needed.
+  - name: Data model, schemas and privacy filter rules
+    url: https://github.com/WiFiShare/spec
+    about: >
+      Questions about fields, precision or what gets published belong on the
+      spec repository.
+  - name: How to contribute
+    url: https://github.com/WiFiShare/.github/blob/main/CONTRIBUTING.md
+    about: >
+      How to pick up work, what a privacy-filter change must bring with it, and
+      where each component's build instructions live.
